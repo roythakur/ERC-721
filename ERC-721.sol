@@ -1,8 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MyToken is ERC721 {
-    constructor() ERC721("CromaCampus", "CRC") {}
+contract CromaCampus is ERC20, Ownable {
+    constructor() ERC20("CromaCampus", "CRC") {}
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
 }
