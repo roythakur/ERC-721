@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyToken is ERC721, ERC721URIStorage, Ownable {
-    constructor() ERC721("MyToken", "MTK") {}
+    constructor() ERC721("CromaCampus", "CRC") {}
 
     function safeMint(address to, uint256 tokenId, string memory uri)
         public
