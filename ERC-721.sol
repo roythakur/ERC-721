@@ -8,11 +8,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract MyToken is ERC721, ERC721URIStorage, Ownable {
     constructor() ERC721("CromaCampus", "CRC") {}
 
-    function safeMint(address to, uint256 tokenId, string memory uri)
+    function safeMint(uint256 tokenId, string memory uri)
         public
         onlyOwner
     {
-        _safeMint(to, tokenId);
+        _safeMint(msg.sender, tokenId);
         _setTokenURI(tokenId, uri);
     }
 
